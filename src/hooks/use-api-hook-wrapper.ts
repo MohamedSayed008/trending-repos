@@ -33,7 +33,6 @@ export type HookReturnType<I, O = any> = [
 ];
 
 export function useApiHookWrapper(props: IHookProps): HookReturnType<any> {
-  // deconstruct
   const {
     initialIsLoading = false,
     initialInput,
@@ -49,7 +48,6 @@ export function useApiHookWrapper(props: IHookProps): HookReturnType<any> {
   const [hookData, setHookData]: GenStateType<any> = useState();
   const [input, setInput]: GenStateType<typeof initialInput> = useState(initialInput);
 
-  // will run on mount / update
   useEffect(() => {
     if (skipInitialApiCallOnEmptyInputs && (!input || Object.keys(input).length === 0)) {
       setIsLoading(false);
@@ -93,7 +91,6 @@ export function useApiHookWrapper(props: IHookProps): HookReturnType<any> {
       }
     };
 
-    // noinspection JSIgnoredPromiseFromCall
     fetchData();
 
     // will run on unmount, example cancellation of promises
