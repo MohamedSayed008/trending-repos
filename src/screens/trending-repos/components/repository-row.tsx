@@ -89,7 +89,7 @@ export function RepositoryRow(props: RepositoryRow) {
           <div style={{ marginRight: '16px', display: 'flex', alignItems: 'center' }}>
             <span style={{ marginRight: '8px' }}>Built by</span>
             {builtBy.map((developer) => (
-              <a href={developer.url}>
+              <a key={developer.url} href={developer.url}>
                 <img
                   src={developer.avatar}
                   height='30'
